@@ -10,6 +10,7 @@ export class DummyComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(localStorage.getItem('currentUser'));
   }
 
 }

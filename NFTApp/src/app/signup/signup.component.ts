@@ -34,9 +34,6 @@ export class SignupComponent implements OnInit {
 
   constructor(private router: Router, private signupService: SignupService) {
   }
-  // constructor() {
-  //
-  // }
 
 
   ngOnInit(): void {
@@ -46,7 +43,7 @@ export class SignupComponent implements OnInit {
   signup(): any {
     console.log(this.model);
     this.signupService.SignUp(this.model).subscribe();
-    this.router.navigate(['home']);
+    this.router.navigate(['nfts']);
   }
 
 }

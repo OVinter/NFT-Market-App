@@ -34,8 +34,8 @@ export class SignupService {
             localStorage.setItem('idUser', JSON.stringify(user.idUser));
             console.log(localStorage.getItem('currentUser'));
             console.log(localStorage.getItem('idUser'));
-            // this.router.navigate(['/home'])
-            //  .then(() => window.location.reload());
+            this.router.navigate(['/nfts'])
+             .then(() => window.location.reload());
             console.log(user);
           }
         }),

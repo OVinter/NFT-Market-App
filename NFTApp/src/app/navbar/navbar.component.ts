@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('currentUser');
     if (localStorage.getItem('currentUser'))
     {
       this.flag = true;
