@@ -6,6 +6,7 @@ import {SignupComponent} from './signup/signup.component';
 import {MyNftsComponent} from './my-nfts/my-nfts.component';
 import {AddNftComponent} from './add-nft/add-nft.component';
 import {ModifyNftComponent} from './modify-nft/modify-nft.component';
+import {LogoutComponent} from './logout/logout.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'nfts/modify', component: ModifyNftComponent },
   { path: 'nfts/add', component: AddNftComponent },
   { path: 'nfts', component: MyNftsComponent },
-  { path: 'signup', component: SignupComponent }
+  { path: 'signup', component: SignupComponent },
+  { path: 'logout', component: LogoutComponent }
 ];
 
 @NgModule({
