@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
 
   nfts: any[];
   nmnft = [];
+  nft: any;
+  ab: any = {};
 
   constructor(private getNftsService: GetNftsService, private router: Router) { }
 
@@ -51,6 +53,24 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  public onBidNft(): void {}
+  public onBidNft(idUser: any, id): void {
+    this.getNftsService.onBidNft(idUser, id).subscribe(
+      (response: Nft) => {
+        this.nft = response;
+        this.getNftsService.printNft(this.nft).subscribe();
+        this.ab.nftName = response.nftName;
+        this.ab.bidPrice = response.bidPrice + 100;
+        this.ab.mediaFile = response.mediaFile;
+        this.getNftsService.addNft(this.ab).subscribe(
+          this.router.navigate(['nfts']).then(() => window.location.reload())
+        );
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+
+
+  }
 
 }

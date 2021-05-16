@@ -20,13 +20,14 @@ export class MyNftsComponent implements OnInit {
 
   ngOnInit(): void {
     this.flag = true;
-    if (localStorage.getItem('currentUser') === null) {
-      this.flag = false;
-    }
-    if (this.flag) {
+    if (localStorage.getItem('currentUser') !== null) {
       this.GetNfts();
     } else {
+      this.flag = false;
       console.log(localStorage.getItem('currentUser'));
+    }
+    if (localStorage.getItem('currentUser') === null) {
+      this.flag = false;
     }
   }
 
