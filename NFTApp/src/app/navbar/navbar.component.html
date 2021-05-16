@@ -11,6 +11,21 @@
 <!--    <a mat-raised-button color="accent" routerLink="login">Log In </a>-->
 <!--  </span>-->
 <!--</mat-toolbar>-->
+<div *ngIf="flag;then primary;else second" > </div>
+<ng-template #second>
+
+<mat-toolbar color="green" class="mat-elevation-z8">
+  <span>
+    <span id="spanName">Nft Market</span>
+
+    <a mat-button="blue" routerLink="home">Home </a>
+  <a mat-raised-button color="accent" routerLink="signup">Sign Up </a>
+  </span>
+</mat-toolbar>
+
+</ng-template>
+
+<ng-template #primary>
 
 <mat-toolbar color="green" class="mat-elevation-z8">
   <span>
@@ -18,6 +33,8 @@
 
     <a mat-button="blue" routerLink="home">Home </a>
     <a mat-button="blue" routerLink="nfts">My Nfts </a>
-  <a mat-raised-button color="accent" routerLink="signup">Sign Up </a>
+    <a mat-raised-button color="accent" routerLink="logout">Log Out </a>
   </span>
 </mat-toolbar>
+
+  </ng-template>
