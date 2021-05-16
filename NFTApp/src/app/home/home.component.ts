@@ -11,7 +11,8 @@ import {GetNftsService} from "./HomeService";
 })
 export class HomeComponent implements OnInit {
 
-  nfts: any;
+  nfts: any[];
+  nmnft = [];
 
   constructor(private getNftsService: GetNftsService, private router: Router) { }
 
@@ -22,7 +23,8 @@ export class HomeComponent implements OnInit {
   public GetNfts(): any {
     this.getNftsService.GetNfts().subscribe(
       (response: Nft[]) => {
-        this.nfts = response;
+        this.nfts = response.filter(nft => nft.idUser !== +localStorage.getItem('idUser'));
+        console.log(this.nfts);
         console.log(this.nfts);
         this.router.navigate(['/home']);
       },
@@ -30,6 +32,9 @@ export class HomeComponent implements OnInit {
         alert(error.message);
       }
     );
+
+    console.log(this.nmnft);
+    console.log(this.nfts);
   }
 
   public searchNfts(key: string): void {
@@ -45,5 +50,7 @@ export class HomeComponent implements OnInit {
       this.GetNfts();
     }
   }
+
+  public onBidNft(): void {}
 
 }
