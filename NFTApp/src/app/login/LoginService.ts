@@ -32,11 +32,11 @@ export class LoginService {
     .pipe(map(user => {
         if (user) {
           localStorage.setItem('currentUser', JSON.stringify(user.authenticationToken));
-          localStorage.setItem('idUser', JSON.stringify(user.username));
+          localStorage.setItem('idUser', JSON.stringify(user.idUser));
           console.log(localStorage.getItem('currentUser'));
           console.log(localStorage.getItem('idUser'));
-          this.router.navigate(['/home'])
-            .then(() => window.location.reload());
+          // this.router.navigate(['/home'])
+          //  .then(() => window.location.reload());
           console.log(user);
         }
       }),

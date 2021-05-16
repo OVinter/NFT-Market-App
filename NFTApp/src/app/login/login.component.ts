@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   }
   public LogIn(): void{
     this.loginService.LogIn(this.model).subscribe();
-    this.router.navigate(['home']);
+    // this.router.navigate(['home']);
 
   }
 
