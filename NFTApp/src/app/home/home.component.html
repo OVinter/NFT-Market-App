@@ -1,0 +1,28 @@
+<div class="float-right" style="float: right">
+  <form id="form1" class="form" class="form-inline my-2 my-lg-0" class="float-right">
+    <input type="search" (ngModelChange)="searchNfts(key.value)" #key="ngModel" ngModel
+           name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search products..." required>
+  </form>
+</div>
+
+<tr *ngFor="let nft of nfts" class="col-sm-10">
+  <div class="col-sm-10">
+    <div class="card">
+      <div class="image">
+        <img src="{{nft.mediaFile}}" alt="W3Schools.com" />
+      </div>
+      <div class="card-inner">
+        <div class="header">
+          <h2>{{nft.nftName}}</h2>
+          <h4>{{nft.bidPrice}}</h4>
+        </div>
+<!--        <div id="desc" class="content">-->
+<!--          <p>{{nft.productDescription}}</p>-->
+<!--        </div>-->
+<!--        <div class="phone">-->
+<!--          <p>Phone number: {{nft.userPhone}}</p>-->
+<!--        </div>-->
+      </div>
+    </div>
+  </div>
+</tr>

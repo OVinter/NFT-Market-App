@@ -5,25 +5,25 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
-import { DummyComponent } from './dummy/dummy.component';
 import { SignupComponent } from './signup/signup.component';
 import {FormsModule} from '@angular/forms';
 import { MyNftsComponent } from './my-nfts/my-nfts.component';
 import { AddNftComponent } from './add-nft/add-nft.component';
 import { ModifyNftComponent } from './modify-nft/modify-nft.component';
 import { LogoutComponent } from './logout/logout.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    DummyComponent,
     SignupComponent,
     MyNftsComponent,
     AddNftComponent,
     ModifyNftComponent,
-    LogoutComponent
+    LogoutComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
