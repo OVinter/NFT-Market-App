@@ -62,7 +62,9 @@ export class MyNftsComponent implements OnInit {
     this.getNftsService.deleteNft(nft.id, idUser).subscribe(
       (response: void) => {
         console.log(response);
-        this.GetNfts();
+        this.router.navigate(['nfts']);
+        // this.GetNfts();
+        window.location.reload();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

@@ -10,6 +10,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import { MyNftsComponent } from './my-nfts/my-nfts.component';
+import { AddNftComponent } from './add-nft/add-nft.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { MyNftsComponent } from './my-nfts/my-nfts.component';
     DummyComponent,
     SignupComponent,
     LoginComponent,
-    MyNftsComponent
+    MyNftsComponent,
+    AddNftComponent
   ],
   imports: [
     BrowserModule,
