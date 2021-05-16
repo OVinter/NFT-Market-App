@@ -60,17 +60,10 @@ export class GetNftsService {
 
   }
 
-  addNft(n: Nft): any {
-    console.log(n);
+  addNft(nft: NftModel): any {
     const idUser = +localStorage.getItem('idUser');
-    const a = n as Nft;
-    console.log(a);
-    this.nftAdd.nftName = a.nftName;
-    this.nftAdd.bidPrice = a.bidPrice;
-    this.nftAdd.mediaFile = a.mediaFile;
-    // console.log(this.nftAdd + "hahahhahahaha");
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json',
         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('currentUser'))}) };
-    return this.http.post<any>(this.UrlDeleteNft + '/' + idUser + '/nfts', JSON.stringify(this.nftAdd), httpOptions);
+    return this.http.post<any>(this.UrlDeleteNft + '/' + idUser + '/nfts', JSON.stringify(nft), httpOptions);
   }
 }

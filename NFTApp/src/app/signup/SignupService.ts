@@ -3,7 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpParams} from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { from, Observable } from 'rxjs';
 import { Register } from 'src/app/shared/Register';
-import {map} from 'rxjs/operators';
+import {delay, map} from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {Router} from '@angular/router';
@@ -34,8 +34,7 @@ export class SignupService {
             localStorage.setItem('idUser', JSON.stringify(user.idUser));
             console.log(localStorage.getItem('currentUser'));
             console.log(localStorage.getItem('idUser'));
-            this.router.navigate(['/nfts'])
-             .then(() => window.location.reload());
+            this.router.navigate(['/nfts']).then(() => window.location.reload());
             console.log(user);
           }
         }),

@@ -57,12 +57,13 @@ export class HomeComponent implements OnInit {
     this.getNftsService.onBidNft(idUser, id).subscribe(
       (response: Nft) => {
         this.nft = response;
-        // this.getNftsService.printNft(this.nft).subscribe();
-        // window.location.reload();
-        this.ab = response;
-        this.getNftsService.addNft(this.ab).subscribe();
-        // this.router.navigate(['nfts']);
-
+        this.getNftsService.printNft(this.nft).subscribe();
+        this.ab.nftName = response.nftName;
+        this.ab.bidPrice = response.bidPrice + 100;
+        this.ab.mediaFile = response.mediaFile;
+        this.getNftsService.addNft(this.ab).subscribe(
+          this.router.navigate(['nfts']).then(() => window.location.reload())
+        );
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
