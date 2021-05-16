@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AddNftService} from './addNftService';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-nft',

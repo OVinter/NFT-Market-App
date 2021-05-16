@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import { MyNftsComponent } from './my-nfts/my-nfts.component';
 import { AddNftComponent } from './add-nft/add-nft.component';
+import { ModifyNftComponent } from './modify-nft/modify-nft.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AddNftComponent } from './add-nft/add-nft.component';
     SignupComponent,
     LoginComponent,
     MyNftsComponent,
-    AddNftComponent
+    AddNftComponent,
+    ModifyNftComponent
   ],
   imports: [
     BrowserModule,
