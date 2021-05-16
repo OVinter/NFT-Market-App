@@ -19,7 +19,7 @@ export class SignupService {
   errorData: {};
   constructor(private http: HttpClient, private router: Router) {
 
-    this.UrlLogin = 'http://localhost:8080/api/auth/signup';
+    this.UrlLogin = 'http://localhost:8080/api/authenticate';
     const headerSettings: { [name: string]: string | string[]; } = {};
     this.header = new HttpHeaders(headerSettings);
 
@@ -27,20 +27,20 @@ export class SignupService {
   SignUp(model: Register): any{
     console.log(model);
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };
-    return this.http.post<any>(this.UrlLogin, JSON.stringify(model), httpOptions);
-      // .pipe(map(user => {
-      //     if (user) {
-      //       localStorage.setItem('currentUser', JSON.stringify(user.jwtToken.id_token));
-      //       localStorage.setItem('idUser', JSON.stringify(user.idUser));
-      //       console.log(localStorage.getItem('currentUser'));
-      //       console.log(localStorage.getItem('idUser'));
-      //       this.router.navigate(['/home'])
-      //         .then(() => window.location.reload());
-      //       console.log(user);
-      //     }
-      //   }),
-      //   catchError(this.handleError)
-      // );
+    return this.http.post<any>(this.UrlLogin, JSON.stringify(model), httpOptions)
+      .pipe(map(user => {
+          if (user) {
+            localStorage.setItem('currentUser', JSON.stringify(user.jwtToken.id_token));
+            localStorage.setItem('idUser', JSON.stringify(user.idUser));
+            console.log(localStorage.getItem('currentUser'));
+            console.log(localStorage.getItem('idUser'));
+            // this.router.navigate(['/home'])
+            //  .then(() => window.location.reload());
+            console.log(user);
+          }
+        }),
+        catchError(this.handleError)
+      );
   }
 
   getAuthorizationToken(): any {
