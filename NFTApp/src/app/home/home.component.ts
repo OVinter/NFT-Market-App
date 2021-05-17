@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Nft} from '../shared/Nft';
-import {GetNftsService} from "./HomeService";
+import {GetNftsService} from './HomeService';
 
 @Component({
   selector: 'app-home',
@@ -15,17 +15,43 @@ export class HomeComponent implements OnInit {
   nmnft = [];
   nft: any;
   ab: any = {};
+  flag: any;
 
   constructor(private getNftsService: GetNftsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.GetNfts();
+
+    this.flag = true;
+    if (localStorage.getItem('idUser') !== null) {
+      this.GetNfts();
+    }else {
+      this.flag = false;
+      this.GetAllNfts();
+    }
+
   }
 
   public GetNfts(): any {
     this.getNftsService.GetNfts().subscribe(
       (response: Nft[]) => {
         this.nfts = response.filter(nft => nft.idUser !== +localStorage.getItem('idUser'));
+        console.log(this.nfts);
+        console.log(this.nfts);
+        this.router.navigate(['/home']);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+
+    console.log(this.nmnft);
+    console.log(this.nfts);
+  }
+
+  public GetAllNfts(): any {
+    this.getNftsService.GetNfts().subscribe(
+      (response: Nft[]) => {
+        this.nfts = response;
         console.log(this.nfts);
         console.log(this.nfts);
         this.router.navigate(['/home']);
